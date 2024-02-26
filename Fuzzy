@@ -1,0 +1,39 @@
+import numpy as np
+import skfuzzy as fuzz
+import matplotlib.pyplot as plt
+
+# Membuat variabel linguistik
+kecenderungan_duduk = np.arange(0, 11, 1)
+kecenderungan_berdiri = np.arange(0, 11, 1)
+
+# Membuat fungsi keanggotaan untuk setiap variabel linguistik
+fuzzy_duduk_rendah = fuzz.trimf(kecenderungan_duduk, [-0.51, 0, 0.73])
+fuzzy_duduk_sedang = fuzz.trimf(kecenderungan_duduk, [-0.50, 0, 0.50])
+fuzzy_duduk_tinggi = fuzz.trimf(kecenderungan_duduk, [-1.22, -0.02,0.85])
+
+fuzzy_berdiri_rendah = fuzz.trimf(kecenderungan_berdiri, [-0.44, 0, 0.21])
+fuzzy_berdiri_sedang = fuzz.trimf(kecenderungan_berdiri, [-0.35, 0, 0.24])
+fuzzy_berdiri_tinggi = fuzz.trimf(kecenderungan_berdiri, [-2, 0.02, 0.74])
+
+# Menampilkan fungsi keanggotaan
+plt.figure()
+plt.plot(kecenderungan_duduk, fuzzy_duduk_rendah, 'b', linewidth=1.5, label='Rendah')
+plt.plot(kecenderungan_duduk, fuzzy_duduk_sedang, 'g', linewidth=1.5, label='Sedang')
+plt.plot(kecenderungan_duduk, fuzzy_duduk_tinggi, 'r', linewidth=1.5, label='Tinggi')
+plt.xlabel('Kecenderungan Duduk')
+plt.ylabel('Derajat Keanggotaan')
+plt.title('Fungsi Keanggotaan Kecenderungan Duduk')
+plt.legend()
+plt.grid(True)
+plt.show()
+
+plt.figure()
+plt.plot(kecenderungan_berdiri, fuzzy_berdiri_rendah, 'b', linewidth=1.5, label='Rendah')
+plt.plot(kecenderungan_berdiri, fuzzy_berdiri_sedang, 'g', linewidth=1.5, label='Sedang')
+plt.plot(kecenderungan_berdiri, fuzzy_berdiri_tinggi, 'r', linewidth=1.5, label='Tinggi')
+plt.xlabel('Kecenderungan Berdiri')
+plt.ylabel('Derajat Keanggotaan')
+plt.title('Fungsi Keanggotaan Kecenderungan Berdiri')
+plt.legend()
+plt.grid(True)
+plt.show()
