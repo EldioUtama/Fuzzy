@@ -3,8 +3,8 @@ import skfuzzy as fuzz
 import matplotlib.pyplot as plt
 
 # Membuat variabel linguistik
-kecenderungan_duduk = np.arange(0, 11, 1)
-kecenderungan_berdiri = np.arange(0, 11, 1)
+kecenderungan_duduk = np.arange(-0.51, -0.02, 0.1)
+kecenderungan_berdiri = np.arange(-0.13, 0.18, 0.1)
 
 # Membuat fungsi keanggotaan untuk setiap variabel linguistik
 fuzzy_duduk_rendah = fuzz.trimf(kecenderungan_duduk, [-0.51, 0, 0.73])
